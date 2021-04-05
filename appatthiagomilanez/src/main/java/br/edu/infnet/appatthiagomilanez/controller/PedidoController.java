@@ -43,14 +43,14 @@ public class PedidoController {
 		return "redirect:/pedido";
 	}
 	
-	@GetMapping(value = "/pedido/cadastrodeitem")
+	@GetMapping(value = "/cadastroItem/cadastrodeitem")
 	public String cadastrodeitem(Pedido pedido,  @SessionAttribute("user") Usuario usuario) {
 		
 		pedido.setUsuario(usuario);
 		
 		pedidoService.cadastrodeitem(pedido);
 		
-		return "redirect:/pedido";
+		return "/cadastroItem/cadastrodeitem";
 	}
 	
 	@GetMapping(value="/pedido/{id}/excluir")

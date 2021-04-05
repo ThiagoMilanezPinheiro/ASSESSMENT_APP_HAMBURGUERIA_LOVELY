@@ -17,12 +17,12 @@ public class AcessoController {
 		return "index";
 	}
 	
-	@GetMapping(value = "/cadastro")
+	@GetMapping(value = "/cadastroUsuario")
 	public String cadastro() {
-		return "cadastro";
+		return "login";
 	}
 	
-	@GetMapping(value = "/cadastrodeitem")
+	@GetMapping(value = "/cadastroItem")
 	public String cadastrodeitem() {
 		return "cadastrodeitem";
 	}

@@ -38,13 +38,13 @@ public class UsuarioController {
 	}
 	
 	
-	@GetMapping(value = "/usuario/cadastro")
+	@GetMapping(value = "/cadastroUsuario/cadastro")
 	public String cadastrar(Usuario usuario) {
 		
 		usuarioService.cadastrar(usuario);
 	//	model.addAttribute("usuarios", usuarioService.obterLista());
 		
-		return "login";
+		return "cadastroUsuario/cadastro";
 	}
 	
 	

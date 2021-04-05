@@ -24,6 +24,9 @@ public class Usuario {
 	@OneToMany
 	@JoinColumn(name = "idUsuario")
 	private List<Pedido> pedidos;
+	@OneToMany
+	@JoinColumn(name = "idUsuario")
+	private List<Cliente> cliente;
 	
 	
 	public int getId() {
@@ -61,6 +64,12 @@ public class Usuario {
 	}
 	public void setGit(String git) {
 		this.git = git;
+	}
+	public List<Cliente> getCliente() {
+		return cliente;
+	}
+	public void setCliente(List<Cliente> cliente) {
+		this.cliente = cliente;
 	}
 	
 	

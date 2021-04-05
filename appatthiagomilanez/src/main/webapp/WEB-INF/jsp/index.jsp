@@ -41,14 +41,14 @@
 						<h3><a href="${user.git}">GIT</a></h3>
 						<div class="panel-body">
 					<div class="btn-group">
-						<form action="/login">
+						<form action="/">
 							<button type="submit" class="btn btn-primary">Home</button>
 						</form>
 					</div>					
 				</div>
 				<div class="panel-body">
 					<div class="btn-group">
-						<form action="/cadastrodeitem">
+						<form action="/cadastroItem/cadastrodeitem">
 							<button type="submit" class="btn btn-primary">Cadastro de Itens</button>
 						</form>
 					</div>

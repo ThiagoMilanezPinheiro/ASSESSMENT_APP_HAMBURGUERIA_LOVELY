@@ -37,16 +37,15 @@ margin-bottom:15px;
 
 					<h1 class="marca">Hamburgueria Lovely</h1>
 				</div>
-
-				<div class="panel-body">
-					<div class="btn-group">
-						<form action="/">
-							<button type="submit" class="btn btn-primary">Home</button>
-						</form>
-					</div>
-				</div>
 			</div>
 		</div>
+		<div class="panel-body">
+					<div class="btn-group">
+						<form action="/home">
+							<button type="submit" class="btn btn-primary">Home</button>
+						</form>
+					</div>					
+				</div>
 		
 		<c:if test="${not empty mensagem}">
 		<div class="alert alert-warning">
@@ -54,59 +53,54 @@ margin-bottom:15px;
 		</div>
 		</c:if>
 		
-		<form action="/cliente/incluir" method="post">
+		<form action="/cadastroItem/cadastrodeitem" >
 
+			
 			<div class="form-group">
-				<label>Informe o Nome</label> <input type="text" name="nome"
-					class="form-control">
-			</div>
-			<div class="form-group">
-				<label>Informe seu Email</label> <input type="text" name="email"
-					class="form-control">
-			</div>
-			<div class="form-group">
-				<label>Informe seu Telefone</label> <input type="text" name="telefone"
-					class="form-control">
-			</div>
-			<div class="form-group">
-				<label>Informe seu Endereço</label> <input type="text" name="endereco"
-					class="form-control">
-			</div>
-
+				<label>Item para Cadastro</label>
+				<input type="text" name="descricao" class="form-control">
+				</div>
+				<div class="form-group">
+				<label>Tamanho do Combo</label>
+				<input type="text" name="combo" class="form-control">
+				</div>
+				<div class="form-group">
+				<label>Tipo de Porção</label>
+				<input type="text" name="porcao" class="form-control">
+				</div>
+				
 			<button type="submit" class="btn btn-primary">Cadastrar</button>
 		</form>
 
 		<c:if test="${not empty lista}">
-			<h4>Listagem de Clientes.</h4>
+				<h4>Listagem de Pedidos.</h4>
 
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th>Nome</th>
-						<th>Email</th>
-						<th>Telefone</th>
-						<th>Endereço</th>
-					</tr>
-				</thead>
-				<tbody>
-
-					<c:forEach var="s" items="${lista}">
+				<table class="table table-striped">
+					<thead>
 						<tr>
-							<td>${s.nome}</td>
-							<td>${s.email}</td>
-							<td>${s.telefone}</td>
-							<td>${s.endereco}</td>
-							<td><a href="/cliente/${s.id}/excluir">excluir</a></td>
+							<th>Item para Cadastro</th>
+							<th>Item para Cadastro</th>
+							<th>Tipo de Porção</th>
 						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
+					</thead>
+					<tbody>
 
-		</c:if>
+						<c:forEach var="p" items="${lista}">
+							<tr>
+								<td>${p.descricao}</td>
+								<td>${p.combo}</td>
+								<td>${p.porcao}</td>
+								<td><a href="/pedido/${p.id}/excluir">excluir</a></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
 
-		<c:if test="${empty lista}">
-			<h4>Nenhum Cliente cadastrado!!!</h4>
-		</c:if>
+			</c:if>
+
+			<c:if test="${empty lista}">
+				<h4>Nenhum Pedido cadastrado!!!</h4>
+			</c:if>
 	</div>
 </body>
 </html>

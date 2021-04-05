@@ -19,9 +19,11 @@
 	transform: translate(-50%, -50%);
 }
 
+
 .w3-btn {
-	margin-bottom: 15px;
+margin-bottom:15px;
 }
+
 </style>
 </head>
 <body>
@@ -34,15 +36,14 @@
 						alt="HamburgueriaLovely.com" style="width: 1106px; height: 540px;">
 
 					<h1 class="marca">Hamburgueria Lovely</h1>
-				</div>
-				
 					
-				<div class="panel-body">
+					<div class="panel-body">
 					<div class="btn-group">
-						<form action="/cadastroUsuario/cadastro">
-							<button type="submit" class="btn btn-primary">Novo Usuário</button>
+						<form action="/">
+							<button type="submit" class="btn btn-primary">Home</button>
 						</form>
 					</div>
+				</div>
 				</div>
 			</div>
 		</div>
@@ -52,22 +53,56 @@
 			<strong>Atenção!!! </strong>${mensagem}
 		</div>
 		</c:if>
-		<form action="/usuario/login" method="post">
+		
+		<form action="/cadastroUsuario/cadastro" >
 
+			
 			<div class="form-group">
-				<label>Informe o E-mail</label> <input type="text" name="email"
+				<label>Informe seu Email</label> <input type="email" name="email"
 					class="form-control">
 			</div>
 			<div class="form-group">
-				<label>Informe sua Senha</label> <input type="text" name="senha"
+				<label>Informe o Nome</label> <input type="text" name="nome"
 					class="form-control">
 			</div>
+			<div class="form-group">
+				<label>Senha</label> <input type="password" name="senha"
+					class="form-control">
+			</div>
+			
 
-			<button type="submit"
-				class="btn btn-primary">Logar</button>
+			<button type="submit" class="btn btn-primary">Cadastrar</button>
 		</form>
 
+		<c:if test="${not empty lista}">
+			<h4>Listagem de Clientes.</h4>
 
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Email</th>
+						<th>Senha</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<c:forEach var="s" items="${lista}">
+						<tr>
+							<td>${s.email}</td>
+							<td>${s.nome}</td>
+							<td>${s.senha}</td>
+							<td><a href="/cliente/${s.id}/excluir">excluir</a></td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+
+		</c:if>
+
+<!--  	<c:if test="${empty lista}">
+			<h4>Nenhum Cliente cadastrado!!!</h4>
+		</c:if> -->	
 	</div>
 </body>
 </html>
